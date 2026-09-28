@@ -1,0 +1,117 @@
+---
+title: "Plugins"
+description: "Let the chatbot show buttons and forms or call a configured backend API when a visitor needs an action."
+---
+
+{/* Migration source: https://orkata.co/docs/chatbot-management/plugins */}
+
+Plugins extend the chatbot beyond answering from the Knowledge Base. An enabled plugin can show a custom button, collect a form submission, or call a backend API when the visitor’s request matches its purpose.
+
+## Manage plugins
+
+Open **Plugins** for the selected chatbot. Search configured plugins by name, select **Add plugin** to create one, or select **Configure** on an existing plugin card.
+
+Every plugin includes:
+
+- **Plugin Name** — an internal name your team can recognize
+- **When to Use** — private instructions that help the AI decide when the action is relevant
+- **Enabled** — controls whether the chatbot can use the saved plugin
+
+Disabled plugins stay configured but are unavailable in chat.
+
+Write **When to Use** as a specific visitor intent. For example: “Use this when the visitor wants to contact our support team or continue the conversation outside chat.” Avoid broad wording such as “use when helpful,” which can cause unexpected triggers.
+
+## Custom Button
+
+Use **Custom Button** for a clear call to action, such as Contact Us, Book a Demo, Open the Help Center, or Track an Order on an external page.
+
+Configure:
+
+- Plugin Name
+- When to Use
+- Button label
+- Link
+
+The button appears as an independent block in the conversation rather than inside the assistant’s text bubble.
+
+Test a direct trigger message and a similar message that should receive only a normal answer. If the button appears too often, narrow **When to Use**.
+
+Keep the visitor-facing label short and make **When to Use** specific enough to avoid accidental triggers.
+
+## Form
+
+Use **Form** to collect structured information in chat and send valid responses to your webhook.
+
+Configure:
+
+- A visitor-facing form title and description
+- Private **When to Use** instructions
+- Text, email, phone, number, textarea, select, or checkbox fields
+- Each field as required or explicitly optional
+- Submit button label and success message
+- **Allow multiple submissions**
+- A public HTTPS webhook URL
+- Optional server-side webhook headers
+
+The title and description are visible to visitors; **When to Use** remains private AI guidance.
+
+Field values are validated against the saved plugin and sent to the webhook. Orkata does not store the submitted field values as Leads. It stores a receipt with status, count, and timestamps to track successful submissions.
+
+After a successful submission, the form is replaced by the complete success message for the current view. When **Allow multiple submissions** is enabled, the form becomes available again after the visitor reloads or reopens the conversation.
+
+Request only information you genuinely need. Your webhook should authenticate requests where appropriate, validate all values again, apply rate limits, and avoid returning secrets.
+
+## HTTP Request
+
+Use **HTTP Request** when the chatbot needs to collect or infer inputs, call your backend from Orkata’s server, and use the JSON response. Common examples include order status, appointment availability, or a product lookup.
+
+Supported methods are **GET**, **POST**, **PUT**, **PATCH**, and **DELETE**.
+
+You can define text, email, phone, number, or boolean variables; mark variables required; and allow array values. Insert a variable into the URL, query parameters, headers, or JSON body with a token such as:
+
+```text
+{{customer_email}}
+```
+
+The endpoint must be a public HTTPS URL. Enter sample values and select **Test request** before enabling the plugin. Keep API responses limited to the information the chatbot needs.
+
+Test with safe sample values before making the action available to visitors.
+
+## Test in Playground
+
+For every enabled plugin, test:
+
+1. A direct request that should trigger it.
+2. A reworded request with the same intent.
+3. A nearby question that should remain a text response.
+4. Missing required input.
+5. Invalid input.
+6. A webhook or API failure.
+
+The chatbot may first ask for missing required information. Custom UI such as buttons and forms appears as a separate block below the relevant assistant response.
+
+## Delete or disable a plugin
+
+Disable a plugin to keep its configuration while making it unavailable in chat. Delete it when the action should be removed permanently. A deleted HTTP Request no longer sends traffic to the configured endpoint, and a deleted button or form stops appearing.
+
+## Troubleshooting
+
+### The plugin does not trigger
+
+Confirm that it is enabled and **When to Use** clearly matches the visitor’s intent. Test with a direct request before testing subtle wording.
+
+### A Custom Button appears without the expected list or text
+
+Plugin instructions choose the action; they do not guarantee a separate generated list. Put necessary contact details in the Knowledge Base or response instructions, and use the button for one clear link.
+
+### A form cannot be submitted again
+
+If multiple submissions are disabled, one successful submission prevents another for that form. If enabled, the success message remains visible for the current view and the form returns only after reload or reopen.
+
+### An HTTP Request fails
+
+Confirm the endpoint is public HTTPS, tokens match defined variables, the JSON is valid, and your server accepts the configured method and headers. Use **Test request** with non-sensitive sample data.
+
+## Next step
+
+Test plugin behavior in [Playground](/chatbot-management/playground), then review real triggers in [Chat Logs](/chatbot-management/chat-logs).
