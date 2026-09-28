@@ -2,3 +2,93 @@
 title: "Settings"
 description: "Review agent identifiers and knowledge usage, delete conversation history, or permanently delete an agent."
 ---
+
+{/* Migration source: https://orkata.co/docs/chatbot-management/settings */}
+
+Settings shows identifying information for the selected chatbot and provides destructive data-management actions. AI behavior and widget appearance are configured in Playground, not on this page.
+
+## Agent information
+
+The information card shows:
+
+- **Name** — the chatbot’s current internal name
+- **Agent ID** — the internal identifier used by Orkata
+- **Public ID** — the identifier used for the public chatbot and embeds
+- **Agent knowledge size** — storage used by this chatbot’s sources
+- **Trained sources** — the number of sources currently available for retrieval
+
+Use the **Public ID** when diagnosing a public link or embed. Include it when contacting support about a specific chatbot.
+
+Check that you are viewing the correct agent before using a Danger Zone action.
+
+## Delete all conversations
+
+Use **Delete all conversations** when you need to clear the chatbot’s sessions and messages.
+
+This action deletes:
+
+- Chat sessions
+- Visitor messages
+- Assistant messages and their stored response details
+
+It keeps:
+
+- The chatbot
+- Knowledge sources and indexed data
+- AI and widget configuration
+- Plugins
+
+<Warning>
+After deletion, Chat Logs is empty. The action cannot be undone.
+</Warning>
+
+## Delete the agent
+
+Use **Delete agent** only when the chatbot and all of its associated data are no longer needed.
+
+This permanently deletes:
+
+- The agent
+- Knowledge sources and indexed data
+- Configured plugins
+- Chat sessions and messages
+
+<Warning>
+Public links and website embeds for the deleted agent stop working. This action cannot be undone.
+</Warning>
+
+The confirmation explains the scope; read it carefully before continuing.
+
+## Before deleting data
+
+1. Confirm the agent name and Public ID.
+2. Decide whether you need to remove only conversations or the entire agent.
+3. Save any business records you are required to retain outside Orkata.
+4. Inform teammates who manage the chatbot or its website embed.
+5. Remove the embed from your website when deleting the agent.
+
+## Customer data and model training
+
+Orkata stores customer data to provide the chatbot service, including sources, searchable knowledge sections, settings, plugins, sessions, and messages. During chat, relevant context can be sent to the selected AI model provider to generate a response.
+
+Orkata does not use your knowledge sources, uploaded files, website imports, Q&A content, Text sources, visitor messages, or chat logs to train Orkata-owned AI models.
+
+Deleting a source removes it from the chatbot’s Knowledge Base and retrieval index. Deleting conversations removes session history while keeping the agent. Deleting the agent removes the complete chatbot scope described above.
+
+## Troubleshooting
+
+### The trained source count looks wrong
+
+Open each Knowledge Base page and check for **New**, **Training**, or **Failed** sources. Only sources that completed training are counted as trained.
+
+### The knowledge size remains high
+
+Delete unused sources, then refresh Settings after the deletion completes. Account-wide storage shown in the dashboard can include sources from other chatbots.
+
+### Conversation deletion does not remove a source
+
+That is expected. **Delete all conversations** keeps the Knowledge Base. Delete the source from its source page, or delete the entire agent when everything should be removed.
+
+## Continue learning
+
+Return to [Playground](/chatbot-management/playground) to configure the chatbot, or review [Best Practices](/quick-start/best-practices) before publishing it to customers.
