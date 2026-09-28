@@ -29,7 +29,11 @@
           {
             "group": "Knowledge Base",
             "pages": [
-              "chatbot-management/knowledge-base"
+              "chatbot-management/knowledge-base",
+              "chatbot-management/knowledge-base/files",
+              "chatbot-management/knowledge-base/q-and-a",
+              "chatbot-management/knowledge-base/text",
+              "chatbot-management/knowledge-base/website"
             ]
           }
         ]
