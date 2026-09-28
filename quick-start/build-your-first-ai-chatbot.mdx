@@ -2,3 +2,116 @@
 title: "Build your first AI Chatbot"
 description: "Create a chatbot, add trusted knowledge, test its answers, and make it available to customers."
 ---
+
+{/* Migration source: https://orkata.co/docs/quick-start/build-your-first-ai-chatbot */}
+
+This guide takes you from an empty account to a working chatbot that answers from your own content.
+
+## Before you begin
+
+You need:
+
+- An Orkata account
+- A small amount of accurate business information
+- A few realistic questions for testing
+- A public HTTPS URL if you plan to use a Website source
+
+For the fastest first test, prepare one Q&A entry such as your business hours, delivery estimate, or return window.
+
+## First chatbot checklist
+
+- [ ] Create a chatbot
+- [ ] Add at least one knowledge source
+- [ ] Test realistic questions in Playground
+- [ ] Review the model, instructions, and widget
+- [ ] Open the public link or install the embed code
+
+## 1. Create a chatbot
+
+Open the [dashboard](https://orkata.co/dashboard) and select **Create chatbot**.
+
+Give it a name that helps your team recognize its purpose, such as `Store Support`, `Product Assistant`, or `Internal Policy Helper`. The name can be changed later.
+
+After creation, Orkata opens the chatbot’s Knowledge Base.
+
+## 2. Add the first knowledge source
+
+Choose the source type that best represents the information:
+
+- [Files](/chatbot-management/knowledge-base/files) for text-selectable PDF, Markdown (`.md`), or text (`.txt`) documents
+- [Q&A](/chatbot-management/knowledge-base/q-and-a) for one approved answer with one or more ways customers may ask the question
+- [Text](/chatbot-management/knowledge-base/text) for focused policies, product details, or reference notes
+- [Website](/chatbot-management/knowledge-base/website) for public HTTPS pages serving HTML or Markdown content
+
+Use one source with an answer you already know. Avoid uploading a large collection of documents for the first test.
+
+<Warning>
+For PDF files, confirm that you can select or highlight the text. Scanned or image-only PDFs cannot be read reliably.
+</Warning>
+
+## 3. Wait for training to finish
+
+After adding a source, Orkata prepares it for retrieval. Wait until the source status shows **Trained**.
+
+Here, training means extracting the text, splitting it into searchable sections, and creating the search index used by this chatbot. It does not mean training a new AI model with the document.
+
+If a source fails, open its actions menu to review the error. Fix the source and add or recrawl it again.
+
+## 4. Test in Playground
+
+Open [Playground](/chatbot-management/playground) and ask a question covered by your source.
+
+Do not test only the exact sentence from the source. If the approved question is “What are your opening hours?”, also try:
+
+- “When are you open?”
+- “Are you open on Sunday?”
+- “What time do you close?”
+
+Review the response for:
+
+- **Accuracy** — it matches the approved information
+- **Relevance** — it answers the question that was asked
+- **Clarity** — it is easy for a customer to understand
+- **Tone** — it sounds appropriate for your business
+- **Boundaries** — it does not invent an answer when information is missing
+
+## 5. Configure the chatbot
+
+Use the **AI** tab in Playground to review:
+
+- **Model** — the AI model used to write responses
+- **Temperature** — lower values are more consistent; higher values are more varied
+- **Instructions** — the role, tone, boundaries, and fallback behavior
+- **Plugins** — actions currently available to the chatbot
+
+Use the **Widget** tab to set the welcome message, suggested messages, colors, and other visitor-facing options.
+
+Save your changes and repeat the same test questions. Use [Compare Models](/chatbot-management/compare-models) when you want to evaluate the same prompt across several models before choosing one.
+
+## 6. Add plugins when needed
+
+[Plugins](/chatbot-management/plugins) let the chatbot do more than return text. For example, it can:
+
+- Show a button that sends the visitor to another page
+- Display a form and send the submission to your webhook
+- Call an HTTP endpoint to retrieve information from your system
+
+Add plugins only after the basic answers work. Test both the message that should trigger a plugin and similar messages that should not.
+
+## 7. Share the chatbot
+
+Open the **Share** tab in Playground. Orkata provides three options:
+
+- A standalone public chat link
+- A JavaScript website widget
+- A direct iframe embed
+
+Open the public version and run your test questions one more time. If you install the widget or iframe, verify it on both desktop and mobile layouts.
+
+## You are ready to expand
+
+You now have a chatbot with verified knowledge, tested behavior, and a customer-facing deployment option. Add the next topic only after the first one is working consistently.
+
+## Next step
+
+Read [Best Practices](/quick-start/best-practices) before adding more sources or sending the chatbot to a larger audience.
