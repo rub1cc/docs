@@ -14,9 +14,7 @@
         "pages": [
           "quick-start/welcome-to-orkata",
           "quick-start/build-your-first-ai-chatbot",
-          "quick-start/best-practices",
-          "index",
-          "quickstart"
+          "quick-start/best-practices"
         ]
       },
       {
@@ -39,16 +37,7 @@
           "chatbot-management/settings"
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
   "navbar": {
     "links": [
