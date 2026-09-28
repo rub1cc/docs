@@ -7,7 +7,6 @@
     "light": "#07C983",
     "dark": "#15803D"
   },
-  "favicon": "/favicon.svg",
   "navigation": {
     "pages": [
       {
@@ -44,11 +43,6 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
           "anchor": "Blog",
           "href": "https://mintlify.com/blog",
           "icon": "newspaper"
@@ -56,21 +50,17 @@
       ]
     }
   },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "https://orkata.co",
+        "label": "Website"
       }
     ],
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://app.mintlify.com"
+      "href": "https://orkata.co/dashboard"
     }
   },
   "contextual": {
@@ -91,5 +81,9 @@
       "github": "https://github.com/mintlify",
       "linkedin": "https://linkedin.com/company/mintlify"
     }
+  },
+  "description": "Learn how to build, train, test, and share an AI chatbot using your business knowledge with Orkata.",
+  "banner": {
+    "content": "Migration preview: three pages and screenshot assets still require import. Do not publish this branch yet."
   }
 }
