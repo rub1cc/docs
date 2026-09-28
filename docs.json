@@ -36,7 +36,8 @@
               "chatbot-management/knowledge-base/website"
             ]
           },
-          "chatbot-management/plugins"
+          "chatbot-management/plugins",
+          "chatbot-management/settings"
         ]
       }
     ],
