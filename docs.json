@@ -25,9 +25,12 @@
         "pages": [
           "chatbot-management/playground",
           "chatbot-management/compare-models",
+          "chatbot-management/chat-logs",
           {
             "group": "Knowledge Base",
-            "pages": []
+            "pages": [
+              "chatbot-management/knowledge-base"
+            ]
           }
         ]
       }

@@ -1,0 +1,107 @@
+---
+title: "Chat Logs"
+description: "Review customer conversations, response details, and the knowledge snippets retrieved for an answer."
+---
+
+{/* Migration source: https://orkata.co/docs/chatbot-management/chat-logs */}
+
+Chat Logs records conversations for the selected chatbot. Use it to understand what visitors ask, inspect chatbot answers, and identify source or instruction changes that will improve future responses.
+
+Orkata uses conversation data to provide the service and show these logs. It does not use customer knowledge or chat logs to train Orkata-owned AI models.
+
+## Choose a conversation
+
+The session list shows when a conversation started, a message preview, its message count, and its latest activity. Select a session to open the complete transcript. Select **Show more** when older sessions are available, or **Refresh** to load recent activity.
+
+Select a session on the left to inspect its full conversation on the right.
+
+The conversation header shows the session date. Messages appear in the order the visitor and chatbot sent them.
+
+## Filter conversations
+
+Select the filter icon above the session list to narrow the logs by:
+
+- **Date range**, based on when each session started
+- **Confidence score**, which includes a session when at least one completed assistant response is below the selected threshold
+
+Choose a low confidence threshold to find conversations that may need knowledge or instruction improvements. The active-filter badge shows how many filter groups are applied. Select **Clear** to return to all sessions.
+
+## Export conversations
+
+Open the three-dot menu above the session list and choose:
+
+- **Export JSON** for structured conversations with messages, confidence details, retrieved-source references, and plugin UI parts
+- **Export CSV** for one spreadsheet row per message, including session dates, roles, content, confidence, and source names
+
+Exports include every conversation matching the active filters, not only the sessions currently visible in the sidebar. An export is limited to **5,000 conversations**; narrow the date range or lower the confidence threshold when a larger export is rejected.
+
+<Warning>
+Conversation exports can contain personal or sensitive information entered by visitors. Store exported files securely and share them only with authorized people.
+</Warning>
+
+## Read response details
+
+An assistant response can show compact details below it:
+
+- **Confidence** summarizes how strongly retrieval matched the visitor’s question.
+- **Credits** shows the response’s AI credit cost.
+- **Time** shows when the response was created; hover for the exact timestamp.
+- **Model** identifies the model that generated the response.
+- **Sources** shows how many stored knowledge snippets were used.
+
+These details help diagnose an answer, but they are not a substitute for checking the source itself. A confident response can still be wrong when the source is outdated or contradictory.
+
+## Inspect retrieved sources
+
+Select the source count on a response to open **Retrieved Sources**. The dialog shows the source name and the exact stored snippet retrieved for that answer. It may also show the chunk position within the source.
+
+Compare the generated answer with the retrieved evidence before changing the model.
+
+Use the evidence to decide what to fix:
+
+- If the correct snippet was retrieved but the answer is unclear, revise the chatbot instructions or compare another model.
+- If the wrong snippet was retrieved, improve source headings, separate unrelated topics, or add a focused Text or Q&A source.
+- If no useful source was retrieved, confirm the information exists in a **Trained** source and is stated directly.
+- If several sources disagree, update or delete the outdated copies and retrain.
+
+## Turn logs into improvements
+
+Review a small sample regularly and group issues by cause:
+
+1. **Missing knowledge** — add the approved answer to Q&A or Text.
+2. **Outdated knowledge** — edit, replace, or recrawl the source.
+3. **Unclear behavior** — revise instructions in Playground.
+4. **Wrong plugin trigger** — make the plugin’s **When to Use** description more specific.
+5. **Account-specific request** — provide a clear path to a person instead of inventing an answer.
+
+After changing anything, ask the original message again in Playground and confirm the result.
+
+## Delete conversation history
+
+Chat Logs does not delete individual sessions. To remove all conversations for this chatbot:
+
+1. Open [Settings](/chatbot-management/settings).
+2. Select **Delete all conversations** in the **Danger Zone**.
+3. Review the confirmation and continue.
+
+<Warning>
+This removes chat sessions and messages but keeps the chatbot, plugins, settings, and Knowledge Base. The action cannot be undone.
+</Warning>
+
+## Troubleshooting
+
+### A recent conversation is missing
+
+Select **Refresh**. Confirm that you are viewing the same chatbot that handled the conversation.
+
+### Retrieved Sources is empty
+
+Older or failed responses may not have stored retrieval evidence. For a new test, confirm that the chatbot has a trained source and send the question again.
+
+### The visitor message contains sensitive information
+
+Avoid asking visitors for information you do not need. Use a Form plugin with carefully chosen fields when structured collection is required, and configure your receiving system appropriately. Delete all conversations from Settings when the whole chatbot history must be removed.
+
+## Next step
+
+Learn how to organize and maintain the content behind these answers in [Knowledge Base](/chatbot-management/knowledge-base).
