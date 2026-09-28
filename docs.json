@@ -23,6 +23,8 @@
       {
         "group": "Chatbot Management",
         "pages": [
+          "chatbot-management/playground",
+          "chatbot-management/compare-models",
           {
             "group": "Knowledge Base",
             "pages": []
