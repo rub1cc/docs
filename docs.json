@@ -13,8 +13,19 @@
       {
         "group": "Quick Start",
         "pages": [
+          "quick-start/welcome-to-orkata",
+          "quick-start/build-your-first-ai-chatbot",
           "index",
           "quickstart"
+        ]
+      },
+      {
+        "group": "Chatbot Management",
+        "pages": [
+          {
+            "group": "Knowledge Base",
+            "pages": []
+          }
         ]
       }
     ],
